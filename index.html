@@ -1,410 +1,320 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navegación Responsiva</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-  </head>
 
-  <body>
-    <div
-      x-data="{ menuAbierto: false, cerrarMenu: function() { this.menuAbierto = false; }}"
-    >
-      <!-- Barra de navegación -->
-      <nav class="px-4 pt-4 pb-5 md:px-8  md:pt-4  flex flex-row justify-around items-center">
-        <!-- Logo -->
-        <div class="flex items-center mt-16 hidden xl:block">
-          <img src="./assets/img/logo.png" alt="Logo" class="h-100 w-40" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navegación Responsiva</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
 
-        <!-- Menú para pantallas pequeñas -->
-        <div class="flex items-center justify-start w-full xl:hidden">
-          <button
-            @click="menuAbierto = !menuAbierto"
-            class="text-black focus:outline-none mr-auto"
-          >
+<body>
+  <div x-data="{ menuAbierto: false}">
+    <!-- Barra de navegación -->
+    <nav class="px-4 pt-4 pb-5 md:px-8  md:pt-4  flex flex-row justify-around items-center">
+      <!-- Logo -->
+      <div class="flex items-center mt-16 hidden xl:block">
+        <img src="./assets/img/logo.png" alt="Logo" class="h-100 w-40" />
+      </div>
+
+      <!-- Menú para pantallas pequeñas -->
+      <div class="flex items-center justify-start w-full xl:hidden">
+        <button @click="menuAbierto = !menuAbierto" class="text-black focus:outline-none mr-auto">
+          <template x-if="!menuAbierto">
             <svg fill="currentColor" viewBox="0 0 20 20" class="h-20 w-16">
-              <path
-                d="M14 3v2H6V3h8zM6 8h8v2H6V8zm8 3H6v2h8v-2zm0 3H6v2h8v-2z"
-              ></path>
-            </svg>
-          </button>
-        </div>
+              <path d="M14 3v2H6V3h8zM6 8h8v2H6V8zm8 3H6v2h8v-2zm0 3H6v2h8v-2z"></path>
+          </template>
 
-        <!-- Menú para pantallas grandes -->
-        <div class="hidden xl:flex space-x-4 gap-10 text-2xl">
-          <a href="#" class="text-gray-700 hover:text-black">HOME</a>
-          <a href="#" class="text-gray-700 hover:text-black">ÜBER UNS</a>
-          <a href="#" class="text-gray-700 hover:text-black">UNSERE SERVICES</a>
-          <a href="#" class="text-gray-800 hover:text-black">KONTAKT</a>
-        </div>
-        <button
-          class="bg-red-500 hover:bg-blue-700 text-white font-bold w-48 py-2 px-6 hidden md:block"
-        >
+          <template x-if="menuAbierto">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="h-20 w-16 text-black">
+              <path fill-rule="evenodd"
+                d="M6.293 6.293a1 1 0 011.414 0L12 10.586l4.293-4.293a1 1 0 111.414 1.414L13.414 12l4.293 4.293a1 1 0 11-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 01-1.414-1.414L10.586 12 6.293 7.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path> </template>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menú para pantallas grandes -->
+      <div class="hidden xl:flex space-x-4 gap-10 text-2xl">
+        <a href="#" class="text-gray-700 hover:text-black">HOME</a>
+        <a href="#" class="text-gray-700 hover:text-black">ÜBER UNS</a>
+        <a href="#" class="text-gray-700 hover:text-black">UNSERE SERVICES</a>
+        <a href="#" class="text-gray-800 hover:text-black">KONTAKT</a>
+      </div>
+      <button class="bg-red-500 hover:bg-blue-700 text-white font-bold w-48 py-2 px-6 hidden md:block">
+        KOSTENLOSE ERSTBERATUNG
+      </button>
+    </nav>
+
+    <!-- Menú desplegable para pantallas pequeñas -->
+    <div x-transition:enter="transition ease-out duration-500 transform"
+      x-transition:enter-start="opacity-0 translate-x-[-100%]" x-transition:enter-end="opacity-100 translate-x-0"
+      x-transition:leave="transition ease-in duration-300 transform"
+      x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-[-100%]"
+      x-show="menuAbierto"
+      class=" flex flex-col gap-8 ml-12 text-3xl font-semibold fixed insent-0 z-100 bg-gray-200 py-8 px-4 shadow-[0_35px_60px_-5px_rgba(33,37,41,1)] rounded">
+
+      <a href="#" @click="menuAbierto = false" class="block text-black mb-2">HOME</a>
+      <a href="#" @click="menuAbierto = false" class="block text-black mb-2">ÜBER UNS</a>
+      <a href="#" @click="menuAbierto = false" class="block text-black mb-2">UNSERE SERVICES</a>
+      <a href="#" @click="menuAbierto = false" class="block text-black mb-2">KONTAKT</a>
+
+    </div>
+  </div>
+
+  <div class="contaier">
+    <div class="text-center pt-10 px-12 lg:text-left md:p-15  lg:flex flex-row justify-around xl:flex-row gap-10">
+      <!-- Contenido de la sección flex flex-col  md:flex-row items-start -->
+      <div class="lg:w-6/12 md:mr-4 mb-4 md:mb-0">
+        <h2 class="font-bold mb-4 text-red-500 text-xl">
+          BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
+          <span class=" text-5xl md:text-6xl block font-extrabold text-black">
+            TAYE BRANDSCHUTZ & SERVICES</span>
+        </h2>
+        <p class="text-black-900 mb-4 text-2xl">
+          Mit über 15 Jahren Erfahrung in Brandschutzbegehungen, der Beratung
+          für Brandschutzkonzeote, Verkauf und der Wartung von
+          Brandschutzmitteln von Feuerlöschern!
+        </p>
+        <button class="bg-red-500 hover:bg-blue-700 text-white font-bold w-48 py-2 px-6 mt-20 mb-15">
           KOSTENLOSE ERSTBERATUNG
         </button>
-      </nav>
+      </div>
 
-      <!-- Menú desplegable para pantallas pequeñas -->
-      <div
-        x-show="menuAbierto"
-        x-transition:enter="fade-enter"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="fade-leave"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        class="lg:hidden bg-gray-200"
-      >
-        <a href="#" @click="cerrarMenu" class="block text-black mb-2">HOME</a>
-        <a href="#" @click="cerrarMenu" class="block text-black mb-2"
-          >ÜBER UNS</a
-        >
-        <a href="#" @click="cerrarMenu" class="block text-black mb-2"
-          >UNSERE SERVICES</a
-        >
-        <a href="#" @click="cerrarMenu" class="block text-black mb-2"
-          >KONTAKT</a
-        >
+      <!-- Imagen de la sección -->
+      <div class=" hidden lg:block">
+        <img src="./assets/img/image.png" alt="Imagen de la Sección" class="h-full w-full" />
       </div>
     </div>
-
-    <div class="contaier">
-      <div class="text-center pt-10 px-12 lg:text-left md:p-15  lg:flex flex-row justify-around xl:flex-row gap-10">
-        <!-- Contenido de la sección flex flex-col  md:flex-row items-start -->
-        <div class="lg:w-6/12 md:mr-4 mb-4 md:mb-0">
-          <h2 class="font-bold mb-4 text-red-500 text-xl">
-            BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
-            <span class=" text-5xl md:text-6xl block font-extrabold text-black">
-              TAYE BRANDSCHUTZ & SERVICES</span
-            >
-          </h2>
-          <p class="text-black-900 mb-4 text-2xl">
-            Mit über 15 Jahren Erfahrung in Brandschutzbegehungen, der Beratung
-            für Brandschutzkonzeote, Verkauf und der Wartung von
-            Brandschutzmitteln von Feuerlöschern!
-          </p>
-          <button
-            class="bg-red-500 hover:bg-blue-700 text-white font-bold w-48 py-2 px-6 mt-20 mb-15"
-          >
-            KOSTENLOSE ERSTBERATUNG
-          </button>
-        </div>
-
-        <!-- Imagen de la sección -->
-        <div class=" hidden lg:block">
-          <img
-            src="./assets/img/image.png"
-            alt="Imagen de la Sección"
-            class="h-full w-full"
-          />
-        </div>
-      </div>
+  </div>
+  <div
+    class="bg-red-500 h-auto md:h-32 mt-10 md:mt-32 flex flex-col md:flex-row justify-around items-center text-white">
+    <div class="text-center md:text-left  md:mb-0">
+      <!-- Alineación del texto y ajuste de margen en pantallas pequeñas -->
+      <p class="text-4xl md:text-6xl font-bold">
+        95% <span class="text-md md:text-xl"> Avg Satisfaction</span>
+      </p>
     </div>
-    <div
-      class="bg-red-500 h-auto md:h-32 mt-10 md:mt-32 flex flex-col md:flex-row justify-around items-center text-white"
-    >
-      <div class="text-center md:text-left  md:mb-0">
-        <!-- Alineación del texto y ajuste de margen en pantallas pequeñas -->
-        <p class="text-4xl md:text-6xl font-bold">
-          95% <span class="text-md md:text-xl"> Avg Satisfaction</span>
-        </p>
-      </div>
-      <div class="text-center md:text-left mb-4 md:mb-0">
-        <p class="text-4xl md:text-6xl font-bold">
-          4.8/5 <span class="text-md md:text-xl"> Aveage Ratings</span>
-        </p>
-      </div>
-      <div class="text-center md:text-left">
-        <p class="text-4xl md:text-6xl font-bold">
-          500+ <span class="text-md md:text-xl"> Zufriedene Kunden</span>
-        </p>
-      </div>
+    <div class="text-center md:text-left mb-4 md:mb-0">
+      <p class="text-4xl md:text-6xl font-bold">
+        4.8/5 <span class="text-md md:text-xl"> Aveage Ratings</span>
+      </p>
     </div>
-    <div class="container mx-auto  h-96">
-      <!-- <video autoplay muted loop class="w-full">
+    <div class="text-center md:text-left">
+      <p class="text-4xl md:text-6xl font-bold">
+        500+ <span class="text-md md:text-xl"> Zufriedene Kunden</span>
+      </p>
+    </div>
+  </div>
+  <div class="container mx-auto  h-96">
+    <!-- <video autoplay muted loop class="w-full">
           <source src="" type="video/mp4"> -->
-      <!-- <source src="tu_video.webm" type="video/webm"> -->
-      <!-- <source src="tu_video.ogv" type="video/ogg"> -->
-      <!-- </video> -->
-      <div class="aspect-w-16 aspect-h-16">
-        <iframe
-          src="https://www.youtube.com/embed/TU_ID_DE_VIDEO?autoplay=1&mute=1&loop=1&controls=0"
-          frameborder="0"
-          allowfullscreen
-          class="w-full h-96"
-        ></iframe>
-      </div>
+    <!-- <source src="tu_video.webm" type="video/webm"> -->
+    <!-- <source src="tu_video.ogv" type="video/ogg"> -->
+    <!-- </video> -->
+    <div class="aspect-w-16 aspect-h-16">
+      <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO?autoplay=1&mute=1&loop=1&controls=0" frameborder="0"
+        allowfullscreen class="w-full h-96"></iframe>
     </div>
+  </div>
 
-    <div
-      class="mt-10"
-      x-data="{ secciones: [] }"
-      x-init="secciones = [
+  <div class="mt-10" x-data="{ secciones: [] }" x-init="secciones = [
       { numero:'01', titulo: 'BERATUNG FÜR INDUSTRIE UND HAUSHALT', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' },
       { numero:'02', titulo: 'WARTUNG UND INSTANDHALTUNG VON BRANDSCHUTZMITTEL', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' },
       { numero:'03', titulo: 'INDUSTRIELLE RAUMUND GEBÄUDEBEGEHUNGEN', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' },
       { numero:'04', titulo: 'SICHERHEITSGRAFIKEN', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' }
-  ]"
-    >
-      <!-- Título centrado -->
-      <div class="flex flex-col items-center justify-center">
-        <p class="text-center text-xl text-red-500">
-          UNSERE SERVICES UND LEISTUNGEN
-        </p>
-        <h2
-          class=" xl:w-2/3 text-4xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
-        >
-          Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
-          Dienstleistungen und Produkten professionell zur Seite
+  ]">
+    <!-- Título centrado -->
+    <div class="flex flex-col items-center justify-center">
+      <p class="text-center text-xl text-red-500">
+        UNSERE SERVICES UND LEISTUNGEN
+      </p>
+      <h2 class=" xl:w-2/3 text-4xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl">
+        Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
+        Dienstleistungen und Produkten professionell zur Seite
+      </h2>
+    </div>
+
+    <!-- Secciones generadas dinámicamente -->
+    <div class="flex flex-col p-20 justify-center items-center divide-y">
+      <template x-for="(seccion, index) in secciones" :key="index">
+        <div class="flex flex-col mb-20 items-center justify-center  xl:flex-row justify-around items-center">
+          <p class="text-2xl mb-2 font-bold mb-2 px-12 py-9 bg-red-500 text-white" x-text="`${seccion.numero}`"></p>
+          <p class="font-extrabold mb-2 text-center text-2xl  xl:w-96" x-text="`${seccion.titulo}`"></p>
+          <p class="text-gray-800 mb-2 text-center text-2xl xl:w-1/2" x-text="`${seccion.descripcion}`"></p>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <div class="container mx-auto pt-20 flex flex-col text-center lg:flex-row items-center lg:text-left">
+    <!-- Contenido de texto y botón -->
+    <div class=" lg:w-1/2 md:pr-8 pl-0">
+      <h2 class="text-center lg:text-left text-6xl font-black mb-8 lg:w-14">
+        <span class="text-red-500 text-3xl font-bold block">UNSERE KERNKOMPETENZEN</span>Beratung, Installation,
+        Umsetzung
+      </h2>
+      <p class="text-3xl mb-8 font-normal">
+        Our skilled technicians are equipped with the latest tools and
+        expertise to diagnose and fix any automotive issue. We take pride in
+        our work, delivering results that exceed your expectations.
+      </p>
+      <button class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-normal py-4 px-7">
+        MEHR INFOS
+      </button>
+    </div>
+
+    <!-- Imagen -->
+    <div class="hidden lg:block lg:w-1/2 md:pl-8 mt-4 md:mt-0">
+      <img src="./assets/img/24h.png" alt="Descripción de la imagen" class="w-full h-auto" />
+    </div>
+  </div>
+
+  <div class="container mx-auto pt-20 text-center flex flex-col md:flex-row items-center lg:text-left">
+    <!-- Imagen -->
+    <div class="hidden lg:block md:w-1/2 md:pl-8 mt-4 md:mt-0 ">
+      <img src="./assets/img/15.png" alt="Descripción de la imagen" class="w-full h-auto" />
+    </div>
+    <!-- Contenido de texto y botón -->
+    <div class=" lg:w-1/2 md:pr-8">
+      <h2 class="text-6xl w-full md:text-6xl font-black mb-8 w-72">
+        <span class="text-red-500 text-3xl font-bold block">ERFAHRUNG, PRAXIS, KOMPETENZ</span>Über 15 Jahre Erfahrung
+      </h2>
+      <p class="text-3xl mb-8">
+        Our skilled technicians are equipped with the latest tools and
+        expertise to diagnose and fix any automotive issue. We take pride in
+        our work, delivering results that exceed your expectations.
+      </p>
+      <button class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7">
+        order service
+      </button>
+    </div>
+  </div>
+
+  <div
+    x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
+    class=" pt-20 pb-20">
+    <div class="flex flex-col p-20 items-center justify-center xl:flex-row items-center justify-center">
+      <!-- Título -->
+      <div class=" pl-8 flex flex-column items-center justify-center">
+        <h2 class="text-4xl w-full font-black text-center xl:text-left mb-4 md:text-6xl mb-0 w-3/5 ">
+          <span class="text-red-500 text-2xl font-bold block">TAYE BRANDSCHUTZ SERVICE </span>Hanseatische Werte,
+          deutsche Zuverlässigkeit und irgendwassonstnoch
         </h2>
       </div>
 
-      <!-- Secciones generadas dinámicamente -->
-      <div class="flex flex-col p-20 justify-center items-center divide-y">
-        <template x-for="(seccion, index) in secciones" :key="index">
-          <div
-            class="flex flex-col mb-20 items-center justify-center  xl:flex-row justify-around items-center"
-          >
-            <p
-              class="text-2xl mb-2 font-bold mb-2 px-12 py-9 bg-red-500 text-white"
-              x-text="`${seccion.numero}`"
-            ></p>
-            <p
-              class="font-extrabold mb-2 text-center text-2xl  xl:w-96"
-              x-text="`${seccion.titulo}`"
-            ></p>
-            <p
-              class="text-gray-800 mb-2 text-center text-2xl xl:w-1/2"
-              x-text="`${seccion.descripcion}`"
-            ></p>
+      <!-- Columna con tres secciones -->
+      <div class="flex flex-col justify-center items-center gap-6">
+        <!-- Sección con número y texto -->
+        <template x-for="(section, index) in sections" :key="index">
+          <div class="w-96 flex flex-row items-center bg-gray-100 p-4 rounded-md">
+            <p class="text-5xl font-extrabold mr-10" x-text="section.number"></p>
+            <p class="text-2xl" x-text="section.text"></p>
           </div>
         </template>
       </div>
     </div>
+  </div>
 
-    <div class="container mx-auto pt-20 flex flex-col text-center lg:flex-row items-center lg:text-left">
-      <!-- Contenido de texto y botón -->
-      <div class=" lg:w-1/2 md:pr-8 pl-0">
-        <h2 class="text-center lg:text-left text-6xl font-black mb-8 lg:w-14">
-          <span class="text-red-500 text-3xl font-bold block"
-            >UNSERE KERNKOMPETENZEN</span
-          >Beratung, Installation, Umsetzung
-        </h2>
-        <p class="text-3xl mb-8 font-normal">
-          Our skilled technicians are equipped with the latest tools and
-          expertise to diagnose and fix any automotive issue. We take pride in
-          our work, delivering results that exceed your expectations.
-        </p>
-        <button
-          class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-normal py-4 px-7"
-        >
-          MEHR INFOS
-        </button>
-      </div>
-
-      <!-- Imagen -->
-      <div class="hidden lg:block lg:w-1/2 md:pl-8 mt-4 md:mt-0">
-        <img
-          src="./assets/img/24h.png"
-          alt="Descripción de la imagen"
-          class="w-full h-auto"
-        />
-      </div>
+  <div class="container mx-auto">
+    <!-- Título de la sección -->
+    <div class=" px-4 flex justify-center pt-16">
+      <h2 class=" xl:w-2/3 text-6xl text-black-500 font-black text-center mb-8">
+        <span class="text-red-500 text-3xl font-bold block">KUNDENSTIMMEN</span>Über 500 zufriedene Kunden können sich
+        nicht irren. Das sagen unsere
+        Kunden
+      </h2>
     </div>
 
-    <div class="container mx-auto pt-20 text-center flex flex-col md:flex-row items-center lg:text-left">
-      <!-- Imagen -->
-      <div class="hidden lg:block md:w-1/2 md:pl-8 mt-4 md:mt-0 ">
-        <img
-          src="./assets/img/15.png"
-          alt="Descripción de la imagen"
-          class="w-full h-auto"
-        />
-      </div>
-      <!-- Contenido de texto y botón -->
-      <div class=" lg:w-1/2 md:pr-8">
-        <h2 class="text-6xl w-full md:text-6xl font-black mb-8 w-72">
-          <span class="text-red-500 text-3xl font-bold block"
-            >ERFAHRUNG, PRAXIS, KOMPETENZ</span
-          >Über 15 Jahre Erfahrung
-        </h2>
-        <p class="text-3xl mb-8">
-          Our skilled technicians are equipped with the latest tools and
-          expertise to diagnose and fix any automotive issue. We take pride in
-          our work, delivering results that exceed your expectations.
-        </p>
-        <button
-          class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7"
-        >
-          order service
-        </button>
-      </div>
-    </div>
-
-    <div
-      x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
-      class=" pt-20 pb-20"
-    >
-      <div class="flex flex-col p-20 items-center justify-center xl:flex-row items-center justify-center">
-        <!-- Título -->
-        <div class=" pl-8 flex flex-column items-center justify-center">
-          <h2 class="text-4xl w-full font-black text-center xl:text-left mb-4 md:text-6xl mb-0 w-3/5 ">
-            <span class="text-red-500 text-2xl font-bold block"
-              >TAYE BRANDSCHUTZ SERVICE </span
-            >Hanseatische Werte, deutsche Zuverlässigkeit und irgendwassonstnoch
-          </h2>
-        </div>
-
-        <!-- Columna con tres secciones -->
-        <div class="flex flex-col justify-center items-center gap-6">
-          <!-- Sección con número y texto -->
-          <template x-for="(section, index) in sections" :key="index">
-            <div
-              class="w-96 flex flex-row items-center bg-gray-100 p-4 rounded-md"
-            >
-              <p
-                class="text-5xl font-extrabold mr-10"
-                x-text="section.number"
-              ></p>
-              <p class="text-2xl" x-text="section.text"></p>
-            </div>
-          </template>
-        </div>
-      </div>
-    </div>
-
-    <div class="container mx-auto">
-      <!-- Título de la sección -->
-      <div class=" px-4 flex justify-center pt-16">
-        <h2
-          class=" xl:w-2/3 text-6xl text-black-500 font-black text-center mb-8"
-        >
-          <span class="text-red-500 text-3xl font-bold block"
-            >KUNDENSTIMMEN</span
-          >Über 500 zufriedene Kunden können sich nicht irren. Das sagen unsere
-          Kunden
-        </h2>
-      </div>
-
-      <!-- Contenedor principal de la sección -->
-      <div class="flex flex-row items-center justify-center xl:flex flex-col">
-        <!-- Cuadros con imágenes y textos -->
-        <div class="flex flex-col items-center justify-center xl:flex-row gap-10">
-          <!-- Primer cuadro -->
-          <div
-            class="flex-col justify-center items-center border border-black mb-10 sm:p-10"
-          >
-            <div class="flex items-center justify-center">
-              <img src="./assets/img/comillas.png" alt="Imagen 1" class="w-14 mr-4" />
-              <p class="text-lg w-64 sm:w-96">
-                “As busy professional, I rely on my car daily. This auto service
-                in Birmingham has never let me down, providing fast and reliable
-                repairs whenever meeded.”
-              </p>
-            </div>
-
-            <div class="flex flex-col items-center pt-6 md:flex-row ">
-              <img src="./assets/img/profile.png" alt="Imagen 1" class="w-24 md:mr-4" />
-              <p class="text-2xl font-bold ">BELLA FROM BIRMINHAN</p>
-            </div>
+    <!-- Contenedor principal de la sección -->
+    <div class="flex flex-row items-center justify-center xl:flex flex-col">
+      <!-- Cuadros con imágenes y textos -->
+      <div class="flex flex-col items-center justify-center xl:flex-row gap-10">
+        <!-- Primer cuadro -->
+        <div class="flex-col justify-center items-center border border-black mb-10 sm:p-10">
+          <div class="flex items-center justify-center">
+            <img src="./assets/img/comillas.png" alt="Imagen 1" class="w-14 mr-4" />
+            <p class="text-lg w-64 sm:w-96">
+              “As busy professional, I rely on my car daily. This auto service
+              in Birmingham has never let me down, providing fast and reliable
+              repairs whenever meeded.”
+            </p>
           </div>
-          <!-- Segundo cuadro -->
-          <div
-            class="flex-col justify-center items-center border border-black mb-10 sm:p-10"
-          >
-            <div class="flex items-center justify-center">
-              <img src="./assets/img/comillas.png" alt="Imagen 1" class="w-14 mr-4" />
-              <p class="text-lg w-64 sm:w-96">
-                “As busy professional, I rely on my car daily. This auto service
-                in Birmingham has never let me down, providing fast and reliable
-                repairs whenever meeded.”
-              </p>
-            </div>
 
-            <div class="flex flex-col items-center pt-6 md:flex-row ">
-              <img src="./assets/img/profile.png" alt="Imagen 1" class="w-24" />
-              <p class="text-2xl font-bold pl-6">BEllA FROM BIRMINHAN</p>
-            </div>
+          <div class="flex flex-col items-center pt-6 md:flex-row ">
+            <img src="./assets/img/profile.png" alt="Imagen 1" class="w-24 md:mr-4" />
+            <p class="text-2xl font-bold ">BELLA FROM BIRMINHAN</p>
+          </div>
+        </div>
+        <!-- Segundo cuadro -->
+        <div class="flex-col justify-center items-center border border-black mb-10 sm:p-10">
+          <div class="flex items-center justify-center">
+            <img src="./assets/img/comillas.png" alt="Imagen 1" class="w-14 mr-4" />
+            <p class="text-lg w-64 sm:w-96">
+              “As busy professional, I rely on my car daily. This auto service
+              in Birmingham has never let me down, providing fast and reliable
+              repairs whenever meeded.”
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center pt-6 md:flex-row ">
+            <img src="./assets/img/profile.png" alt="Imagen 1" class="w-24" />
+            <p class="text-2xl font-bold pl-6">BEllA FROM BIRMINHAN</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="bg-gray-100 py-36 mt-36 p-20">
-      <!-- Contenedor principal de la sección -->
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 items-center h-full">
-        <!-- Parte izquierda: Título -->
-        <div class="text-center xl:text-left">
-          <h3 class="text-5xl md:text-6xl font-black mb-2 ">
-            <span class="text-red-500 font-bold text-3xl block"
-              >AUF NUMMER SICHER SICHER GEHEN!</span
-            >LASSEN SIE SICH KOSTENLOS VON UNS BERATEN!
-          </h3>
-        </div>
-
-        <!-- Parte derecha: Texto y Botón -->
-        <div class="text-center">
-          <p class="mb-16 text-3xl ">
-            Our commitment to quality ensures that your car performs at its
-            best, so you can drive with confidence.
-          </p>
-          <button
-            class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7"
-          >
-            ORDER SERVICE
-          </button>
-        </div>
+  <div class="bg-gray-100 py-36 mt-36 p-20">
+    <!-- Contenedor principal de la sección -->
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 items-center h-full">
+      <!-- Parte izquierda: Título -->
+      <div class="text-center xl:text-left">
+        <h3 class="text-5xl md:text-6xl font-black mb-2 ">
+          <span class="text-red-500 font-bold text-3xl block">AUF NUMMER SICHER SICHER GEHEN!</span>LASSEN SIE SICH
+          KOSTENLOS VON UNS BERATEN!
+        </h3>
       </div>
-    </div>
 
-    <footer class="text-gray-400 py-16">
-      <div
-        class="container mx-auto flex flex-col xl:flex-row gap 4 justify-around items-center"
-      >
-        <!-- Navegación -->
-        <nav
-          class="flex flex-col md:flex-row space-y-2 md:space-x-4 md:space-y-0 gap-12 text-2xl"
-        >
-          <a href="#" class="hover:text-black">HOME</a>
-          <a href="#" class="hover:text-black">UBER UNS</a>
-          <a href="#" class="hover:text-black">SERVICES</a>
-          <a href="#" class="hover:text-black">IMPRESUM</a>
-          <a href="#" class="hover:text-black">KONKART</a>
-        </nav>
-
-        <!-- Botón para desplazarse hacia arriba -->
-        <button
-          onclick="scrollToTop()"
-          class="bg-red-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded md:ml-4"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 inline-block"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
+      <!-- Parte derecha: Texto y Botón -->
+      <div class="text-center">
+        <p class="mb-16 text-3xl ">
+          Our commitment to quality ensures that your car performs at its
+          best, so you can drive with confidence.
+        </p>
+        <button class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7">
+          ORDER SERVICE
         </button>
       </div>
-    </footer>
-    <!-- Script de Alpine.js -->
-    <script type="text/javascript" src="./script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
-      defer
-    ></script>
-  </body>
+    </div>
+  </div>
+
+  <footer class="text-gray-400 py-16">
+    <div class="container mx-auto flex flex-col xl:flex-row gap 4 justify-around items-center">
+      <!-- Navegación -->
+      <nav class="flex flex-col md:flex-row space-y-2 md:space-x-4 md:space-y-0 gap-12 text-2xl">
+        <a href="#" class="hover:text-black">HOME</a>
+        <a href="#" class="hover:text-black">UBER UNS</a>
+        <a href="#" class="hover:text-black">SERVICES</a>
+        <a href="#" class="hover:text-black">IMPRESUM</a>
+        <a href="#" class="hover:text-black">KONKART</a>
+      </nav>
+
+      <!-- Botón para desplazarse hacia arriba -->
+      <button onclick="scrollToTop()"
+        class="bg-red-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded md:ml-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+  <!-- Script de Alpine.js -->
+  <script type="text/javascript" src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</body>
+
 </html>
