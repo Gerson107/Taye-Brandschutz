@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navegación Responsiva</title>
+    <title>TAYE BRANDSCHUTZ & SERVICES</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
+      rel="icon"
+      sizes="16x16 32x32 48x48"
+      type="image/png"
+      href="../assets/img/logo.png"
     />
-    <link rel="stylesheet" type="text/css" href="./public/style.css" />
+    <link rel="stylesheet" type="text/css" href="../public/build/styles.css" />
+    <link href="./output.css" rel="stylesheet" />
   </head>
 
   <body>
-    <div x-data="{ menuAbierto: false}">
+    <div
+      class="container mx-auto px-4 lg:px-10 lg:mb-10"
+      x-data="{ menuAbierto: false}"
+    >
       <!-- Barra de navegación -->
-      <nav
-        class="flex justify-end px-4 xl:pb-14 lg:justify-between md:px-8 md:pt-12 h-30 flex xl:flex-row xl:justify-around"
-      >
+      <nav class="flex justify-end lg:justify-between lg:pt-8">
         <!-- Logo -->
         <div class="flex items-center hidden xl:block">
-          <img src="./assets/img/logo.png" alt="Logo" class="h-100 w-24" />
+          <img src="../assets/img/logo.png" alt="Logo" class="h-100 w-24" />
         </div>
 
         <!-- Menú para pantallas grandes -->
@@ -30,7 +34,7 @@
           <a href="#" class="text-gray-800 hover:text-black">KONTAKT</a>
         </div>
         <button
-          class="bg-red-500 hover:bg-blue-700 text-white text-base font-bold w-44 h-16 hidden lg:block"
+          class="bg-red-500 lg:mt-5 xl:mt-0 hover:bg-blue-700 text-white text-base font-bold w-44 h-16 hidden lg:block"
         >
           KOSTENLOSE ERSTBERATUNG
         </button>
@@ -111,17 +115,17 @@
       </div>
     </div>
 
-    <div class="contaier">
+    <div class="container mx-auto px-4 lg:px-10">
       <div
-        class="text-center p-10 lg:text-left md:p-15 lg:flex flex-row justify-around xl:flex-row xl:ml-20"
+        class="text-center lg:text-left lg:flex flex-row lg:justify-between xl:flex-row"
       >
         <!-- Contenido de la sección flex flex-col  md:flex-row items-start -->
-        <div class="lg:w-6/12 md:mr-4 mb-4 md:mb-0 xl:mt-10">
-          <h2 class="font-bold mb-4 text-red-500 text-xl">
-            BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
-            <span class="text-5xl md:text-6xl block font-extrabold text-black">
-              TAYE BRANDSCHUTZ & SERVICES</span
-            >
+        <div class="lg:w-6/12">
+          <h2 class="text-5xl md:text-6xl font-extrabold text-black">
+            <span class="font-bold mb-4 text-red-500 text-xl block">
+              BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
+            </span>
+            TAYE BRANDSCHUTZ & SERVICES
           </h2>
           <p class="text-black-900 mb-4 text-2xl">
             Mit über 15 Jahren Erfahrung in Brandschutzbegehungen, der Beratung
@@ -136,17 +140,18 @@
         </div>
 
         <!-- Imagen de la sección -->
-        <div class="hidden objet-top lg:block">
+        <div class="hidden lg:block">
           <img
-            src="./assets/img/image.png"
+            src="../assets/img/image.png"
             alt="Imagen de la Sección"
-            class="w-96 mr-32"
+            class="hero-image"
           />
         </div>
       </div>
     </div>
+
     <div
-      class="bg-red-500 h-auto md:h-32 mt-10 md:mt-20 flex flex-col md:flex-row justify-around items-center text-white"
+      class="px-4 bg-red-500 h-auto md:h-32 mt-10 md:mt-20 flex flex-col md:flex-row justify-around items-center text-white"
     >
       <div class="text-center md:text-left md:mb-0">
         <!-- Alineación del texto y ajuste de margen en pantallas pequeñas -->
@@ -174,7 +179,7 @@
     </div>
 
     <div
-      class="mt-20"
+      class="container mx-auto px-4 lg:px-10"
       x-data="{ secciones: [] }"
       x-init="secciones = [
       { numero:'01', titulo: 'BERATUNG FÜR INDUSTRIE UND HAUSHALT', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' },
@@ -184,12 +189,12 @@
   ]"
     >
       <!-- Título centrado -->
-      <div class="px-8 flex flex-col items-center justify-center">
+      <div class="mt-20 mb-16 flex flex-col items-center justify-center">
         <p class="text-center text-xl text-red-500">
           UNSERE SERVICES UND LEISTUNGEN
         </p>
         <h2
-          class="xl:w-2/3 text-4xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
+          class="text-4xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
         >
           Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
           Dienstleistungen und Produkten professionell zur Seite
@@ -197,7 +202,7 @@
       </div>
 
       <!-- Secciones generadas dinámicamente -->
-      <div class="flex flex-col p-20 justify-center items-center divide-y">
+      <div class="flex flex-col justify-center items-center">
         <template x-for="(seccion, index) in secciones" :key="index">
           <div
             class="flex flex-col mb-20 items-center justify-center xl:flex-row justify-around items-center text-left"
@@ -220,10 +225,10 @@
     </div>
 
     <div
-      class="container mx-auto pt-20 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto px-4 lg:px-10 text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Contenido de texto y botón -->
-      <div class="ml-10 lg:w-1/2 md:pr-8 xl:ml-24">
+      <div class="lg:w-1/2">
         <h2 class="text-center lg:text-left text-6xl font-black mb-8 lg:w-14">
           <span class="text-red-500 text-3xl font-bold block"
             >UNSERE KERNKOMPETENZEN</span
@@ -244,7 +249,7 @@
       <!-- Imagen -->
       <div class="hidden lg:block lg:w-1/2 md:pl-8 mt-4 md:mt-0">
         <img
-          src="./assets/img/24h.png"
+          src="../assets/img/24h.png"
           alt="Descripción de la imagen"
           class="w-full h-auto"
         />
@@ -252,19 +257,19 @@
     </div>
 
     <div
-      class="container mx-auto pt-20 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto px-4 lg:px-10 mt-20 text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Imagen -->
       <div class="hidden lg:block md:w-1/2 mt-4 md:mt-0">
         <img
-          src="./assets/img/15.png"
+          src="../assets/img/15.png"
           alt="Descripción de la imagen"
           class="w-full h-auto"
         />
       </div>
       <!-- Contenido de texto y botón -->
-      <div class="ml-10 lg:w-1/2 md:pr-8 xl:ml-24">
-        <h2 class="text-6xl w-full md:text-6xl font-black mb-8 w-72">
+      <div class="lg:w-1/2">
+        <h2 class="text-6xl w-full font-black mb-8 w-72">
           <span class="text-red-500 text-3xl font-bold block"
             >ERFAHRUNG, PRAXIS, KOMPETENZ</span
           >Über 15 Jahre Erfahrung
@@ -284,16 +289,12 @@
 
     <div
       x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
-      class="pt-20 pb-20"
+      class="container mx-auto px-4 lg:px-10 pt-20 pb-20"
     >
-      <div
-        class="flex flex-col items-center justify-around xl:flex-row items-center justify-center"
-      >
+      <div class="flex flex-col items-center xl:flex-row xl:justify-between">
         <!-- Título -->
-        <div class="flex flex-column items-center justify-center xl:w-5/12">
-          <h2
-            class="text-4xl w-full font-black text-center xl:text-left mb-4 md:text-6xl mb-0"
-          >
+        <div class="lg:w-1/2">
+          <h2 class="font-black text-center text-4xl xl:text-left md:text-6xl">
             <span class="text-red-500 text-2xl font-bold block"
               >TAYE BRANDSCHUTZ SERVICE </span
             >Hanseatische Werte, deutsche Zuverlässigkeit und irgendwassonstnoch
@@ -301,11 +302,11 @@
         </div>
 
         <!-- Columna con tres secciones -->
-        <div class="flex flex-col justify-center items-center gap-6">
+        <div class="px-4 flex flex-col items-center xl:items-end gap-6">
           <!-- Sección con número y texto -->
           <template x-for="(section, index) in sections" :key="index">
             <div
-              class="w-96 flex flex-row items-center bg-gray-100 p-4 rounded-md"
+              class="xl:w-3/5 flex flex-row items-center bg-gray-100 p-4 rounded-md"
             >
               <p
                 class="text-5xl font-extrabold mr-10"
@@ -318,9 +319,9 @@
       </div>
     </div>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4 lg:px-10">
       <!-- Título de la sección -->
-      <div class="px-4 flex justify-center pt-16">
+      <div class="flex justify-center pt-16">
         <h2
           class="xl:w-2/3 text-6xl text-black-500 font-black text-center mb-8"
         >
@@ -332,7 +333,7 @@
       </div>
 
       <!-- Contenedor principal de la sección -->
-      <div class="flex flex-row items-center justify-center xl:flex flex-col">
+      <div class="flex flex-row items-center justify-center">
         <!-- Cuadros con imágenes y textos -->
         <div
           class="flex flex-col items-center justify-center xl:flex-row gap-20"
@@ -343,7 +344,7 @@
           >
             <div class="flex items-center justify-center">
               <img
-                src="./assets/img/comillas.png"
+                src="../assets/img/comillas.png"
                 alt="Imagen 1"
                 class="w-14 mr-6"
               />
@@ -356,7 +357,7 @@
 
             <div class="flex flex-col items-center pt-6 md:flex-row">
               <img
-                src="./assets/img/profile.png"
+                src="../assets/img/profile.png"
                 alt="Imagen 1"
                 class="w-24 md:mr-6"
               />
@@ -365,11 +366,11 @@
           </div>
           <!-- Segundo cuadro -->
           <div
-            class="w-11/12 flex-col justify-center items-center border border-black mb-10 sm:p-10"
+            class="w-11/12 flex-col justify-center items-center border border-black mb-10 p-5 sm:p-10"
           >
             <div class="flex items-center justify-center">
               <img
-                src="./assets/img/comillas.png"
+                src="../assets/img/comillas.png"
                 alt="Imagen 1"
                 class="w-14 mr-4"
               />
@@ -381,22 +382,26 @@
             </div>
 
             <div class="flex flex-col items-center pt-6 md:flex-row">
-              <img src="./assets/img/profile.png" alt="Imagen 1" class="w-24" />
-              <p class="text-2xl font-bold pl-16">BEllA FROM BIRMINHAN</p>
+              <img
+                src="../assets/img/profile.png"
+                alt="Imagen 1"
+                class="w-24"
+              />
+              <p class="text-2xl font-bold pl-16">BELLA FROM BIRMINHAN</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-gray-100 py-36 mt-36 px-20">
+    <div class="bg-gray-100 py-36 mt-20">
       <!-- Contenedor principal de la sección -->
       <div
-        class="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:flex justify-around h-full"
+        class="container mx-auto px-4 lg:px-10 grid grid-cols-1 xl:grid-cols-2 gap-4 xl:flex justify-between h-full"
       >
         <!-- Parte izquierda: Título -->
         <div class="xl:w-5/12 text-center xl:text-left">
-          <h3 class="text-5xl md:text-6xl font-black mb-2">
+          <h3 class="text-6xl font-black mb-2">
             <span class="text-red-500 font-bold text-3xl block"
               >AUF NUMMER SICHER SICHER GEHEN!</span
             >LASSEN SIE SICH KOSTENLOS VON UNS BERATEN!
@@ -420,7 +425,7 @@
 
     <footer class="text-gray-400 py-16">
       <div
-        class="container mx-auto flex flex-col xl:flex-row gap 4 justify-around items-center"
+        class="container mx-auto flex flex-col items-center text-center xl:flex-row gap 4 justify-around"
       >
         <!-- Navegación -->
         <nav
@@ -436,7 +441,7 @@
         <!-- Botón para desplazarse hacia arriba -->
         <button
           onclick="scrollToTop()"
-          class="bg-red-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded md:ml-4"
+          class="mt-16 bg-red-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded md:ml-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -456,7 +461,7 @@
       </div>
     </footer>
     <!-- Script de Alpine.js -->
-    <script src="./assets/js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
       defer

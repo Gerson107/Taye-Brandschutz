@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav {
+  opacity: 0.9;
+  visibility: visible;
+  height: 100%;
+  transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+}
+.hero-image {
+  width: 80%;
+  float: right;
+}
+h1,
+h2,
+h3 {
+  line-height: 2.5rem;
+  margin-bottom: 2rem;
+}
+p {
+  line-height: 1.7rem;
+}
+span {
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h1,
+  h2,
+  h3 {
+    line-height: 3.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1,
+  h2,
+  h3 {
+    line-height: 4.5rem;
+  }
+  span {
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  h1,
+  h2,
+  h3 {
+    line-height: 5rem;
+  }
+  p {
+    line-height: 2rem;
+  }
+}
+.nav li {
+  -webkit-animation: fadeInUp 0.5s ease forwards;
+  animation: fadeInUp 0.5s ease forwards;
+  -webkit-animation-delay: 0.35s;
+  animation-delay: 0.35s;
+}
+
+.nav li:nth-of-type(2) {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+.nav li:nth-of-type(3) {
+  -webkit-animation-delay: 0.65s;
+  animation-delay: 0.65s;
+}
+.nav li:nth-of-type(4) {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+
+.nav ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #fff;
+  transition: 0.35s;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
