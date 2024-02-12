@@ -8,14 +8,48 @@
   height: 100%;
   transition: opacity 0.35s, visibility 0.35s, height 0.35s;
 }
+
+.menu-bar.active .top {
+	transform: translateY(11px) translateX(0) rotate(45deg);
+	background: #f2ebeb;
+}
+.menu-bar.active .middle {
+	opacity: 0;
+	background: #f9f1f1;
+}
+.menu-bar.active .bottom {
+	transform: translateY(-11px) translateX(0) rotate(-45deg);
+	background: #ede7e7;
+}
+.menu-bar span {
+	background: #140b0b;
+	border: none;
+	height: 3px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.35s ease;
+	cursor: pointer;
+}
+.menu-bar span:nth-of-type(2) {
+	top: 10px;
+}
+.menu-bar span:nth-of-type(3) {
+	top: 20px;
+}
+.menu-bar.active .top {
+	top: -2px;
+}
 .hero-image {
   width: 80%;
   float: right;
 }
+
 h1,
 h2,
 h3 {
-  line-height: 2.5rem;
+  line-height: 3rem;
   margin-bottom: 2rem;
 }
 p {
@@ -55,22 +89,19 @@ span {
 .nav li {
   -webkit-animation: fadeInUp 0.5s ease forwards;
   animation: fadeInUp 0.5s ease forwards;
-  -webkit-animation-delay: 0.35s;
+-webkit-animation-delay: 0.35s;
   animation-delay: 0.35s;
 }
 
 .nav li:nth-of-type(2) {
   -webkit-animation-delay: 0.45s;
-  animation-delay: 0.45s;
-}
+  animation-delay: 0.45s;}
 .nav li:nth-of-type(3) {
   -webkit-animation-delay: 0.65s;
-  animation-delay: 0.65s;
-}
+  animation-delay: 0.65s;}
 .nav li:nth-of-type(4) {
-  -webkit-animation-delay: 0.75s;
-  animation-delay: 0.75s;
-}
+	-webkit-animation-delay: 0.75s;
+	        animation-delay: 0.75s;}
 
 .nav ul li a:after {
   content: "";
@@ -103,4 +134,24 @@ span {
     opacity: 1;
     transform: none;
   }
+}
+.video-container {
+  position: relative;
+  width: 100%;
+}
+
+.video {
+  width: 100%;
+}
+
+.play-pause-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  font-size: 3em;
+  width: 50px; /* Ancho y alto iguales para que sea un círculo */
+  height: 50px;
+  border-radius: 50%; /* Hace que el botón sea redondo */
 }

@@ -18,9 +18,10 @@
     <div
       class="container mx-auto px-4 lg:px-10 lg:mb-10"
       x-data="{ menuAbierto: false}"
+      
     >
-      <!-- Barra de navegación -->
-      <nav class="flex justify-end lg:justify-between lg:pt-8">
+      <!-- Barra de navegación :class="{ 'fixed top-0 left-0 w-full bg-white shadow-lg': isFixed, 'relative': !isFixed }" class="transition-all duration-300 z-50" -->
+      <nav  class=" flex justify-end lg:justify-between lg:pt-8">
         <!-- Logo -->
         <div class="flex items-center hidden xl:block">
           <img src="../assets/img/logo.png" alt="Logo" class="h-100 w-24" />
@@ -34,50 +35,33 @@
           <a href="#" class="text-gray-800 hover:text-black">KONTAKT</a>
         </div>
         <button
-          class="bg-red-500 lg:mt-5 xl:mt-0 hover:bg-blue-700 text-white text-base font-bold w-44 h-16 hidden lg:block"
+          class="bg-red-500 lg:mt-5 xl:mt-0 hover:bg-black text-white text-base font-bold w-44 h-16 hidden lg:block"
         >
           KOSTENLOSE ERSTBERATUNG
         </button>
 
         <!-- Menú para pantallas pequeñas -->
-        <div class="block xl:hidden">
-          <button
-            @click="menuAbierto = !menuAbierto"
-            class="pointer text-black focus:outline-none mr-auto transition-transform duration-300 transform hover:scale-110"
+        <div @click="menuAbierto = !menuAbierto" class=" mt-4 block xl:hidden">
+          <div
+            class="active  relative z-50 w-8 h-6 cursor-pointer menu-bar"
+            x-bind:class="{'active' : menuAbierto }"
           >
-            <template x-if="!menuAbierto">
-              <svg fill="currentColor" viewBox="0 0 20 20" class="h-20 w-16">
-                <path
-                  d="M14 3v2H6V3h8zM6 8h8v2H6V8zm8 3H6v2h8v-2zm0 3H6v2h8v-2z"
-                ></path>
-              </svg>
-            </template>
-
-            <template x-if="menuAbierto">
-              <svg
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                class="h-20 w-16 text-black"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M6.293 6.293a1 1 0 011.414 0L12 10.586l4.293-4.293a1 1 0 111.414 1.414L13.414 12l4.293 4.293a1 1 0 11-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 01-1.414-1.414L10.586 12 6.293 7.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </template>
-          </button>
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+          </div>
         </div>
       </nav>
 
       <!-- Menú desplegable para pantallas pequeñas -->
-      <div x-show="menuAbierto" class="nav-overlay">
+      <div x-show="menuAbierto" class=" nav-overlay">
         <div
-          class="pointer-events-none nav gap-8 md:2xl lg:text-3xl font-semibold fixed top-0 right-0 w-full h-full bg-gray-900 bg-opacity-90 backdrop-blur-lg opacity-0"
+          @click="menuAbierto = false"
+          class=" nav gap-8 text-4xl font-semibold fixed top-0 right-0 w-full h-full bg-gray-900 bg-opacity-90 backdrop-blur-lg opacity-0"
         >
           <ul
-            class="absolute top-1/4 text-center right-32 transform translate-y-(-1/2) pointer-events-auto md:text-right"
-          >
+            class="w-full md:w-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 text-center right-32  pointer-events-auto md:text-right"
+                      >
             <li>
               <a
                 href="#"
@@ -115,16 +99,16 @@
       </div>
     </div>
 
-    <div class="container mx-auto px-4 lg:px-10">
+    <div class="container mx-auto mt-20 px-4 lg:px-10">
       <div
         class="text-center lg:text-left lg:flex flex-row lg:justify-between xl:flex-row"
       >
         <!-- Contenido de la sección flex flex-col  md:flex-row items-start -->
         <div class="lg:w-6/12">
+          <p class="text-red-500 text-xl font-semibold block">
+            BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
+          </p>
           <h2 class="text-5xl md:text-6xl font-extrabold text-black">
-            <span class="font-bold mb-4 text-red-500 text-xl block">
-              BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
-            </span>
             TAYE BRANDSCHUTZ & SERVICES
           </h2>
           <p class="text-black-900 mb-4 text-2xl">
@@ -133,7 +117,7 @@
             Brandschutzmitteln von Feuerlöschern!
           </p>
           <button
-            class="bg-red-500 hover:bg-blue-700 text-white font-bold w-48 py-2 px-6 mt-32 mb-15"
+            class="bg-red-500 hover:bg-black text-white font-bold w-48 py-2 px-6 mt-32 mb-15"
           >
             KOSTENLOSE ERSTBERATUNG
           </button>
@@ -151,7 +135,7 @@
     </div>
 
     <div
-      class="px-4 bg-red-500 h-auto md:h-32 mt-10 md:mt-20 flex flex-col md:flex-row justify-around items-center text-white"
+      class="px-4 bg-red-500 h-auto md:h-32 mt-10 md:mt-36 flex flex-col md:flex-row justify-around items-center text-white"
     >
       <div class="text-center md:text-left md:mb-0">
         <!-- Alineación del texto y ajuste de margen en pantallas pequeñas -->
@@ -170,14 +154,15 @@
         </p>
       </div>
     </div>
-    <div class="w-full h-full bg-gray-400">
-      <video autoplay muted loop class="w-full">
-        <source src="#" type="video/mp4" />
-        <source src="tu_video.webm" type="video/webm" />
-        <source src="tu_video.ogv" type="video/ogg" />
+    <div class="video-container">
+      <video id="myVideo" autoplay muted loop class="video">
+        <source src="../assets//img/video (2160p).mp4" type="video/mp4" />
+        <source src="../assets//img/video (2160p).mp4" type="video/webm" />
+        <source src="../assets//img/video (2160p).mp4" type="video/ogg" />
       </video>
+      <div id="playPauseBtn" class="play-pause-btn">⏸</div>
     </div>
-
+    
     <div
       class="container mx-auto px-4 lg:px-10"
       x-data="{ secciones: [] }"
@@ -189,12 +174,12 @@
   ]"
     >
       <!-- Título centrado -->
-      <div class="mt-20 mb-16 flex flex-col items-center justify-center">
-        <p class="text-center text-xl text-red-500">
+      <div class="mt-20 md:mt-36 mb-16 flex flex-col items-center justify-center">
+        <p class="text-center font-normal text-2xl text-red-500">
           UNSERE SERVICES UND LEISTUNGEN
         </p>
         <h2
-          class="text-4xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
+          class="text-5xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
         >
           Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
           Dienstleistungen und Produkten professionell zur Seite
@@ -225,7 +210,7 @@
     </div>
 
     <div
-      class="container mx-auto px-4 lg:px-10 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto mt-36 px-4 lg:px-10 text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Contenido de texto y botón -->
       <div class="lg:w-1/2">
@@ -240,7 +225,7 @@
           our work, delivering results that exceed your expectations.
         </p>
         <button
-          class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-normal py-4 px-7"
+          class="bg-red-500 hover:bg-black text-white text-2xl font-normal py-4 px-7"
         >
           MEHR INFOS
         </button>
@@ -280,7 +265,7 @@
           our work, delivering results that exceed your expectations.
         </p>
         <button
-          class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7"
+          class="bg-red-500 hover:bg-black text-white text-2xl font-lg py-4 px-7"
         >
           order service
         </button>
@@ -289,13 +274,13 @@
 
     <div
       x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
-      class="container mx-auto px-4 lg:px-10 pt-20 pb-20"
+      class="container mx-auto mt-36 px-4 lg:px-10 pt-20 pb-20"
     >
       <div class="flex flex-col items-center xl:flex-row xl:justify-between">
         <!-- Título -->
         <div class="lg:w-1/2">
           <h2 class="font-black text-center text-4xl xl:text-left md:text-6xl">
-            <span class="text-red-500 text-2xl font-bold block"
+            <span class="text-red-500 text-3xl font-bold block"
               >TAYE BRANDSCHUTZ SERVICE </span
             >Hanseatische Werte, deutsche Zuverlässigkeit und irgendwassonstnoch
           </h2>
@@ -319,7 +304,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto px-4 lg:px-10">
+    <div class="container mx-auto mt-36 px-4 lg:px-10">
       <!-- Título de la sección -->
       <div class="flex justify-center pt-16">
         <h2
@@ -394,7 +379,7 @@
       </div>
     </div>
 
-    <div class="bg-gray-100 py-36 mt-20">
+    <div class="bg-gray-100 py-36 mt-36">
       <!-- Contenedor principal de la sección -->
       <div
         class="container mx-auto px-4 lg:px-10 grid grid-cols-1 xl:grid-cols-2 gap-4 xl:flex justify-between h-full"
@@ -415,7 +400,7 @@
             best, so you can drive with confidence.
           </p>
           <button
-            class="bg-red-500 hover:bg-blue-700 text-white text-2xl font-lg py-4 px-7"
+            class="bg-red-500 hover:bg-black text-white text-2xl font-lg py-4 px-7"
           >
             ORDER SERVICE
           </button>
@@ -441,7 +426,7 @@
         <!-- Botón para desplazarse hacia arriba -->
         <button
           onclick="scrollToTop()"
-          class="mt-16 bg-red-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded md:ml-4"
+          class="mt-16 bg-red-500 hover:bg-black text-white font-bold py-4 px-8 rounded md:ml-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
