@@ -14,10 +14,10 @@
     <link href="./output.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="font-bodyFont" >
     <div
       class="container mx-auto px-4 lg:px-10 lg:mb-10"
-      x-data="{ menuAbierto: false}"
+      x-data="{ menuAbierto: false, showModal: false}"
       
     >
       <!-- Barra de navegación :class="{ 'fixed top-0 left-0 w-full bg-white shadow-lg': isFixed, 'relative': !isFixed }" class="transition-all duration-300 z-50" -->
@@ -35,6 +35,7 @@
           <a href="#" class="text-gray-800 hover:text-black">KONTAKT</a>
         </div>
         <button
+        @click="showModal = true"
           class="bg-red-500 lg:mt-5 xl:mt-0 hover:bg-black text-white text-base font-bold w-44 h-16 hidden lg:block"
         >
           KOSTENLOSE ERSTBERATUNG
@@ -52,6 +53,23 @@
           </div>
         </div>
       </nav>
+
+      <div
+      x-show="showModal"
+      @click.away="showModal = false"
+      class="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center"
+    >
+      <div class="bg-gray-200 p-8 rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Modal de Consulta</h2>
+        <p>Contenido del modal</p>
+        <button
+          @click="showModal = false"
+          class="mt-4 bg-red-500 hover:bg-black text-white font-bold py-2 px-4 rounded"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
 
       <!-- Menú desplegable para pantallas pequeñas -->
       <div x-show="menuAbierto" class=" nav-overlay">
@@ -108,7 +126,7 @@
           <p class="text-red-500 text-xl font-semibold block">
             BRANDSCHUTZBEGEHUNGEN, BRANDSCHUTZMITTEL UND KONZEPTE
           </p>
-          <h2 class="text-5xl md:text-6xl font-extrabold text-black">
+          <h2 class="text-5xl font-extrabold text-black">
             TAYE BRANDSCHUTZ & SERVICES
           </h2>
           <p class="text-black-900 mb-4 text-2xl">
@@ -155,12 +173,12 @@
       </div>
     </div>
     <div class="video-container">
-      <video id="myVideo" autoplay muted loop class="video">
+      <video id="myVideo"muted loop class="video">
         <source src="../assets//img/video (2160p).mp4" type="video/mp4" />
         <source src="../assets//img/video (2160p).mp4" type="video/webm" />
         <source src="../assets//img/video (2160p).mp4" type="video/ogg" />
       </video>
-      <div id="playPauseBtn" class="play-pause-btn">⏸</div>
+      <div id="playPauseBtn" class="play-pause-btn">▶</div>
     </div>
     
     <div
@@ -179,7 +197,7 @@
           UNSERE SERVICES UND LEISTUNGEN
         </p>
         <h2
-          class="text-5xl text-black-500 font-extrabold text-center mb-8 xl:text-5xl"
+          class="text-4xl text-black-500 font-extrabold text-center mb-8 "
         >
           Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
           Dienstleistungen und Produkten professionell zur Seite
@@ -193,7 +211,7 @@
             class="flex flex-col mb-20 items-center justify-center xl:flex-row justify-around items-center text-left"
           >
             <p
-              class="text-2xl mb-2 font-bold mb-2 px-12 py-9 bg-red-500 text-white"
+              class="text-2xl  font-bold px-12 py-9 bg-red-500 text-white"
               x-text="`${seccion.numero}`"
             ></p>
             <p
@@ -210,12 +228,12 @@
     </div>
 
     <div
-      class="container mx-auto mt-36 px-4 lg:px-10 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto mt-36 pl-4 lg:pl-10 text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Contenido de texto y botón -->
       <div class="lg:w-1/2">
-        <h2 class="text-center lg:text-left text-6xl font-black mb-8 lg:w-14">
-          <span class="text-red-500 text-3xl font-bold block"
+        <h2 class="text-center lg:text-left text-4xl font-black mb-8 lg:w-14">
+          <span class="text-red-500 text-2xl font-bold block"
             >UNSERE KERNKOMPETENZEN</span
           >Beratung, Installation, Umsetzung
         </h2>
@@ -232,30 +250,38 @@
       </div>
 
       <!-- Imagen -->
-      <div class="hidden lg:block lg:w-1/2 md:pl-8 mt-4 md:mt-0">
+      <div class="hidden lg:block lg:w-1/2 md:pl-8 mt-4 md:mt-0 relative">
         <img
-          src="../assets/img/24h.png"
-          alt="Descripción de la imagen"
-          class="w-full h-auto"
+            src="../assets/img/Image-rigth.svg"
+            alt="Descripción de la imagen"
+            class="w-full h-auto"
         />
+        
+        <div class="w-36 h-32 absolute -bottom-16 left-1/2 text-center bg-red-500 text-white p-6">
+          <p class="text-normal leading-5 text-left font-bold"><span class="block font-extrabold text-4xl pb-2">24h</span>TURNAROUND TIME</p> 
+        </div>
       </div>
+    </div>
+    
     </div>
 
     <div
       class="container mx-auto px-4 lg:px-10 mt-20 text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Imagen -->
-      <div class="hidden lg:block md:w-1/2 mt-4 md:mt-0">
+      <div class="hidden lg:block lg:w-1/2 md:pr-12 mt-4 md:mt-0 relative">
         <img
-          src="../assets/img/15.png"
+          src="../assets/img/Image-left.svg"
           alt="Descripción de la imagen"
           class="w-full h-auto"
         />
+        <div class="w-36 h-32 absolute -bottom-16 right-1/2  text-center bg-red-500 text-white p-6">
+          <p class="text-normal leading-5 text-left font-bold"><span class="block font-extrabold text-4xl pb-2">15+</span>JAHRE AM MARKT</p>      </div>
       </div>
       <!-- Contenido de texto y botón -->
       <div class="lg:w-1/2">
-        <h2 class="text-6xl w-full font-black mb-8 w-72">
-          <span class="text-red-500 text-3xl font-bold block"
+        <h2 class="text-4xl w-full font-black mb-8 w-72">
+          <span class="text-red-500 text-2xl font-bold block"
             >ERFAHRUNG, PRAXIS, KOMPETENZ</span
           >Über 15 Jahre Erfahrung
         </h2>
@@ -267,7 +293,7 @@
         <button
           class="bg-red-500 hover:bg-black text-white text-2xl font-lg py-4 px-7"
         >
-          order service
+          ORDER SERVICE
         </button>
       </div>
     </div>
@@ -276,28 +302,28 @@
       x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
       class="container mx-auto mt-36 px-4 lg:px-10 pt-20 pb-20"
     >
-      <div class="flex flex-col items-center xl:flex-row xl:justify-between">
+      <div class="flex flex-col items-center justify-center xl:flex-row xl:justify-between">
         <!-- Título -->
-        <div class="lg:w-1/2">
-          <h2 class="font-black text-center text-4xl xl:text-left md:text-6xl">
-            <span class="text-red-500 text-3xl font-bold block"
+        <div class=" lg:w-1/2">
+          <h2 class="font-black text-center text-4xl xl:text-left">
+            <span class="text-red-500 text-2xl font-bold block"
               >TAYE BRANDSCHUTZ SERVICE </span
             >Hanseatische Werte, deutsche Zuverlässigkeit und irgendwassonstnoch
           </h2>
         </div>
 
         <!-- Columna con tres secciones -->
-        <div class="px-4 flex flex-col items-center xl:items-end gap-6">
+        <div class="xl:w-1/2 px-4 flex flex-col items-center xl:items-end gap-20">
           <!-- Sección con número y texto -->
           <template x-for="(section, index) in sections" :key="index">
             <div
-              class="xl:w-3/5 flex flex-row items-center bg-gray-100 p-4 rounded-md"
+              class=" flex flex-row items-center p-4 rounded-md"
             >
               <p
                 class="text-5xl font-extrabold mr-10"
                 x-text="section.number"
               ></p>
-              <p class="text-2xl" x-text="section.text"></p>
+              <p class="text-2xl font-normal" x-text="section.text"></p>
             </div>
           </template>
         </div>
@@ -308,9 +334,9 @@
       <!-- Título de la sección -->
       <div class="flex justify-center pt-16">
         <h2
-          class="xl:w-2/3 text-6xl text-black-500 font-black text-center mb-8"
+          class="xl:w-2/3 text-4xl text-black-500 font-black text-center mb-8"
         >
-          <span class="text-red-500 text-3xl font-bold block"
+          <span class="text-red-500 text-2xl font-bold block"
             >KUNDENSTIMMEN</span
           >Über 500 zufriedene Kunden können sich nicht irren. Das sagen unsere
           Kunden
@@ -386,11 +412,11 @@
       >
         <!-- Parte izquierda: Título -->
         <div class="xl:w-5/12 text-center xl:text-left">
-          <h3 class="text-6xl font-black mb-2">
-            <span class="text-red-500 font-bold text-3xl block"
+          <h2 class="text-4xl font-extrabold mb-2">
+            <span class="text-red-500 font-bold text-2xl block"
               >AUF NUMMER SICHER SICHER GEHEN!</span
             >LASSEN SIE SICH KOSTENLOS VON UNS BERATEN!
-          </h3>
+          </h2>
         </div>
 
         <!-- Parte derecha: Texto y Botón -->
