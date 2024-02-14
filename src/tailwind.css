@@ -58,6 +58,13 @@ p {
 span {
   line-height: 1rem;
 }
+.navegacion {
+  padding: 0rem 2rem;
+}
+
+.container {
+  margin: 6rem 0rem 6rem 0rem;
+}
 
 @media (min-width: 768px) {
   h1,
@@ -65,10 +72,19 @@ span {
   h3 {
     line-height: 3rem;
   }
+  .navegacion {
+    padding: 2rem 4rem 0rem 4rem;
+  }
+  .container {
+    margin: 8rem 0rem 8rem 0rem;
+  }
 }
 @media (min-width: 1024px) {
   span {
     line-height: 1.5rem;
+  }
+  .container {
+    margin: 10rem 0rem 10rem 0rem;
   }
 }
 @media (min-width: 1280px) {
@@ -148,13 +164,51 @@ span {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  font-size: 3em;
-  width: 50px; /* Ancho y alto iguales para que sea un círculo */
-  height: 50px;
+  font-size: 5rem;
+  width: 90px; /* Ancho y alto iguales para que sea un círculo */
+  height: 90px;
   border-radius: 50%; /* Hace que el botón sea redondo */
-  background-color: rgba(0, 0, 0, 0.912); /* Color de fondo */
-  color: rgb(21, 103, 165); /* Color del icono */
+  background-color: rgba(0, 0, 0, 0.356); /* Color de fondo */
+  color: rgb(119, 124, 128); /* Color del icono */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.play-pause-btn:hover {
+  color: red;
+}
+.line {
+  height: 1px;
+  background-color: #140b0b;
+  width: 95%;
+  margin: 0 auto;
+}
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  animation: slide 10s linear infinite;
+}
+.guion {
+  padding-left: 5rem;
+}
+.slide {
+  white-space: nowrap; /* Evitar saltos de línea */
+  padding-top: 10px;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(90%);
+  }
+  0% {
+    transform: translateX(-90%);
+  }
 }

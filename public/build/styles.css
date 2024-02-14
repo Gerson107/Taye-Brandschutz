@@ -496,11 +496,15 @@ video {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 @media (min-width: 640px) {
 
   .container {
     max-width: 640px;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 }
 @media (min-width: 768px) {
@@ -576,6 +580,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -585,41 +593,23 @@ video {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mb-20 {
-  margin-bottom: 5rem;
-}
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .mb-8 {
   margin-bottom: 2rem;
 }
-.ml-16 {
-  margin-left: 4rem;
-}
 .mr-10 {
   margin-right: 2.5rem;
-}
-.mr-4 {
-  margin-right: 1rem;
-}
-.mr-6 {
-  margin-right: 1.5rem;
 }
 .mt-10 {
   margin-top: 2.5rem;
 }
 .mt-16 {
   margin-top: 4rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.mt-32 {
-  margin-top: 8rem;
-}
-.mt-36 {
-  margin-top: 9rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -641,6 +631,9 @@ video {
 }
 .h-16 {
   height: 4rem;
+}
+.h-20 {
+  height: 5rem;
 }
 .h-32 {
   height: 8rem;
@@ -731,12 +724,6 @@ video {
 .gap-10 {
   gap: 2.5rem;
 }
-.gap-12 {
-  gap: 3rem;
-}
-.gap-20 {
-  gap: 5rem;
-}
 .gap-4 {
   gap: 1rem;
 }
@@ -815,10 +802,6 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
 .px-7 {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
@@ -827,17 +810,13 @@ video {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-.py-36 {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -849,21 +828,6 @@ video {
 }
 .pb-2 {
   padding-bottom: 0.5rem;
-}
-.pb-20 {
-  padding-bottom: 5rem;
-}
-.pl-16 {
-  padding-left: 4rem;
-}
-.pl-4 {
-  padding-left: 1rem;
-}
-.pt-16 {
-  padding-top: 4rem;
-}
-.pt-20 {
-  padding-top: 5rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1018,6 +982,13 @@ p {
 span {
   line-height: 1rem;
 }
+.navegacion {
+  padding: 0rem 2rem;
+}
+
+.container {
+  margin: 6rem 0rem 6rem 0rem;
+}
 
 @media (min-width: 768px) {
   h1,
@@ -1025,10 +996,19 @@ span {
   h3 {
     line-height: 3rem;
   }
+  .navegacion {
+    padding: 2rem 4rem 0rem 4rem;
+  }
+  .container {
+    margin: 8rem 0rem 8rem 0rem;
+  }
 }
 @media (min-width: 1024px) {
   span {
     line-height: 1.5rem;
+  }
+  .container {
+    margin: 10rem 0rem 10rem 0rem;
   }
 }
 @media (min-width: 1280px) {
@@ -1092,15 +1072,53 @@ span {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  font-size: 3em;
-  width: 50px; /* Ancho y alto iguales para que sea un círculo */
-  height: 50px;
+  font-size: 5rem;
+  width: 90px; /* Ancho y alto iguales para que sea un círculo */
+  height: 90px;
   border-radius: 50%; /* Hace que el botón sea redondo */
-  background-color: rgba(0, 0, 0, 0.912); /* Color de fondo */
-  color: rgb(21, 103, 165); /* Color del icono */
+  background-color: rgba(0, 0, 0, 0.356); /* Color de fondo */
+  color: rgb(119, 124, 128); /* Color del icono */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.play-pause-btn:hover {
+  color: red;
+}
+.line {
+  height: 1px;
+  background-color: #140b0b;
+  width: 95%;
+  margin: 0 auto;
+}
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  animation: slide 10s linear infinite;
+}
+.guion {
+  padding-left: 5rem;
+}
+.slide {
+  white-space: nowrap; /* Evitar saltos de línea */
+  padding-top: 10px;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(90%);
+  }
+  0% {
+    transform: translateX(-90%);
+  }
 }
 
 .hover\:bg-black:hover {
@@ -1130,20 +1148,16 @@ span {
     margin-bottom: 0px;
   }
 
+  .md\:mb-36 {
+    margin-bottom: 9rem;
+  }
+
   .md\:ml-4 {
     margin-left: 1rem;
   }
 
-  .md\:mr-6 {
-    margin-right: 1.5rem;
-  }
-
   .md\:mt-0 {
     margin-top: 0px;
-  }
-
-  .md\:mt-36 {
-    margin-top: 9rem;
   }
 
   .md\:h-32 {
@@ -1202,10 +1216,6 @@ span {
 
 @media (min-width: 1024px) {
 
-  .lg\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
   .lg\:mt-5 {
     margin-top: 1.25rem;
   }
@@ -1234,13 +1244,12 @@ span {
     justify-content: space-between;
   }
 
-  .lg\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .lg\:gap-20 {
+    gap: 5rem;
   }
 
-  .lg\:pl-10 {
-    padding-left: 2.5rem;
+  .lg\:pt-20 {
+    padding-top: 5rem;
   }
 
   .lg\:pt-8 {

@@ -16,7 +16,7 @@
 
   <body class="font-bodyFont" >
     <div
-      class="container mx-auto px-4 lg:px-10 lg:mb-10"
+      class="navegacion"
       x-data="{ menuAbierto: false, showModal: false}"
       
     >
@@ -117,7 +117,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto mt-20 px-4 lg:px-10">
+    <div class="container mx-auto ">
       <div
         class="text-center lg:text-left lg:flex flex-row lg:justify-between xl:flex-row"
       >
@@ -129,13 +129,13 @@
           <h2 class="text-5xl font-extrabold text-black">
             TAYE BRANDSCHUTZ & SERVICES
           </h2>
-          <p class="text-black-900 mb-4 text-2xl">
+          <p class="text-black-900 mb-16 md:mb-36 text-2xl">
             Mit über 15 Jahren Erfahrung in Brandschutzbegehungen, der Beratung
             für Brandschutzkonzeote, Verkauf und der Wartung von
             Brandschutzmitteln von Feuerlöschern!
           </p>
           <button
-            class="bg-red-500 hover:bg-black text-white font-bold w-48 py-2 px-6 mt-32 mb-15"
+            class="bg-red-500 hover:bg-black text-xl text-white font-bold w-48 py-2"
           >
             KOSTENLOSE ERSTBERATUNG
           </button>
@@ -153,24 +153,26 @@
     </div>
 
     <div
-      class="px-4 bg-red-500 h-auto md:h-32 mt-10 md:mt-36 flex flex-col md:flex-row justify-around items-center text-white"
+      class=" slider-container  px-4 bg-red-500 h-20 md:h-32 flex flex-row justify-around items-center text-white"
     >
-      <div class="text-center md:text-left md:mb-0">
+    <div class="slider">
+      <div class=" slide text-center md:text-left md:mb-0">
         <!-- Alineación del texto y ajuste de margen en pantallas pequeñas -->
         <p class="text-2xl md:text-6xl font-bold">
-          95% <span class="text-md md:text-xl"> Avg Satisfaction</span>
+          95% <span class="text-md md:text-xl"> Aveage Satisfaction</span>
         </p>
       </div>
-      <div class="text-center md:text-left md:mb-0">
+      <div class=" slide text-center md:text-left md:mb-0">
         <p class="text-2xl md:text-6xl font-bold">
           4.8/5 <span class="text-md md:text-xl"> Aveage Ratings</span>
         </p>
       </div>
-      <div class="text-center md:text-left">
+      <div class=" slide text-center md:text-left">
         <p class="text-2xl md:text-6xl font-bold">
           500+ <span class="text-md md:text-xl"> Zufriedene Kunden</span>
         </p>
       </div>
+    </div>
     </div>
     <div class="video-container">
       <video id="myVideo"muted loop class="video">
@@ -182,7 +184,7 @@
     </div>
     
     <div
-      class="container mx-auto px-4 lg:px-10"
+      class="container mx-auto"
       x-data="{ secciones: [] }"
       x-init="secciones = [
       { numero:'01', titulo: 'BERATUNG FÜR INDUSTRIE UND HAUSHALT', descripcion: 'We offer transparent pricing and free estimates, so you know exactly what to expect before we get towork.' },
@@ -192,12 +194,12 @@
   ]"
     >
       <!-- Título centrado -->
-      <div class="mt-20 md:mt-36 mb-16 flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center">
         <p class="text-center font-normal text-2xl text-red-500">
           UNSERE SERVICES UND LEISTUNGEN
         </p>
         <h2
-          class="text-4xl text-black-500 font-extrabold text-center mb-8 "
+          class="text-4xl text-black-500 font-extrabold text-center"
         >
           Das Team der Taye Brandschutz GmbH steht Ihnen mit folgenden
           Dienstleistungen und Produkten professionell zur Seite
@@ -205,13 +207,13 @@
       </div>
 
       <!-- Secciones generadas dinámicamente -->
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex flex-col justify-between">
         <template x-for="(seccion, index) in secciones" :key="index">
           <div
-            class="flex flex-col mb-20 items-center justify-center xl:flex-row justify-around items-center text-left"
+            class="flex flex-col mt-10 items-center justify-center xl:flex-row justify-around items-center text-left"
           >
             <p
-              class="text-2xl  font-bold px-12 py-9 bg-red-500 text-white"
+              class="text-2xl mb-5  font-bold px-12 py-9 bg-red-500 text-white"
               x-text="`${seccion.numero}`"
             ></p>
             <p
@@ -228,7 +230,7 @@
     </div>
 
     <div
-      class="container mx-auto mt-36 pl-4 lg:pl-10 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Contenido de texto y botón -->
       <div class="lg:w-1/2">
@@ -266,7 +268,7 @@
     </div>
 
     <div
-      class="container mx-auto px-4 lg:px-10 mt-20 text-center flex flex-col md:flex-row items-center lg:text-left"
+      class="container mx-auto text-center flex flex-col md:flex-row items-center lg:text-left"
     >
       <!-- Imagen -->
       <div class="hidden lg:block lg:w-1/2 md:pr-12 mt-4 md:mt-0 relative">
@@ -297,10 +299,20 @@
         </button>
       </div>
     </div>
+    <div class="slider-container lg:pt-20 ">
+      <div class="line"></div>
+      <div class="slider">
+        <h2 class=" slide text-4xl font-black">Brandschutzmittel <span class="guion">- </span></h2>
+        <h2 class=" slide text-4xl font-black"> Wartung & Instandhaltung <span class="guion">- </span></h2>
+        <h2 class=" slide text-4xl font-black"> Expertise <span class="guion">- </span></h2>
+        <h2 class=" slide text-4xl font-black" > Emergency Service</h2>
+      </div>
+      <div class="line"></div>
+    </div>
 
     <div
       x-data="{ sections: [{number: 1, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 2, text: 'this is how much of used oil and tires were recycled by our auto service.'}, {number: 3, text: 'this is how much of used oil and tires were recycled by our auto service.'}] }"
-      class="container mx-auto mt-36 px-4 lg:px-10 pt-20 pb-20"
+      class="container mx-auto"
     >
       <div class="flex flex-col items-center justify-center xl:flex-row xl:justify-between">
         <!-- Título -->
@@ -313,7 +325,7 @@
         </div>
 
         <!-- Columna con tres secciones -->
-        <div class="xl:w-1/2 px-4 flex flex-col items-center xl:items-end gap-20">
+        <div class="xl:w-1/2 flex flex-col items-center xl:items-end lg:gap-20 ">
           <!-- Sección con número y texto -->
           <template x-for="(section, index) in sections" :key="index">
             <div
@@ -330,9 +342,9 @@
       </div>
     </div>
 
-    <div class="container mx-auto mt-36 px-4 lg:px-10">
+    <div class="container mx-auto">
       <!-- Título de la sección -->
-      <div class="flex justify-center pt-16">
+      <div class="flex justify-center">
         <h2
           class="xl:w-2/3 text-4xl text-black-500 font-black text-center mb-8"
         >
@@ -347,43 +359,17 @@
       <div class="flex flex-row items-center justify-center">
         <!-- Cuadros con imágenes y textos -->
         <div
-          class="flex flex-col items-center justify-center xl:flex-row gap-20"
+          class="flex flex-col items-center justify-center xl:flex-row gap-10"
         >
           <!-- Primer cuadro -->
           <div
-            class="w-11/12 flex-col justify-center items-center border border-black mb-10 sm:p-10"
+            class="w-11/12 flex-col justify-center items-center border border-black p-5 sm:p-10"
           >
             <div class="flex items-center justify-center">
               <img
                 src="../assets/img/comillas.png"
                 alt="Imagen 1"
-                class="w-14 mr-6"
-              />
-              <p class="text-lg w-64 sm:w-96">
-                “As busy professional, I rely on my car daily. This auto service
-                in Birmingham has never let me down, providing fast and reliable
-                repairs whenever meeded.”
-              </p>
-            </div>
-
-            <div class="flex flex-col items-center pt-6 md:flex-row">
-              <img
-                src="../assets/img/profile.png"
-                alt="Imagen 1"
-                class="w-24 md:mr-6"
-              />
-              <p class="text-2xl font-bold ml-16">BELLA FROM BIRMINHAN</p>
-            </div>
-          </div>
-          <!-- Segundo cuadro -->
-          <div
-            class="w-11/12 flex-col justify-center items-center border border-black mb-10 p-5 sm:p-10"
-          >
-            <div class="flex items-center justify-center">
-              <img
-                src="../assets/img/comillas.png"
-                alt="Imagen 1"
-                class="w-14 mr-4"
+                class="w-14"
               />
               <p class="text-lg w-64 sm:w-96">
                 “As busy professional, I rely on my car daily. This auto service
@@ -398,17 +384,43 @@
                 alt="Imagen 1"
                 class="w-24"
               />
-              <p class="text-2xl font-bold pl-16">BELLA FROM BIRMINHAN</p>
+              <p class="text-2xl font-bold ">BELLA FROM BIRMINHAN</p>
+            </div>
+          </div>
+          <!-- Segundo cuadro -->
+          <div
+            class="w-11/12 flex-col justify-center items-center border border-black p-5 sm:p-10"
+          >
+            <div class="flex items-center justify-center">
+              <img
+                src="../assets/img/comillas.png"
+                alt="Imagen 1"
+                class="w-14"
+              />
+              <p class="text-lg w-64 sm:w-96">
+                “As busy professional, I rely on my car daily. This auto service
+                in Birmingham has never let me down, providing fast and reliable
+                repairs whenever meeded.”
+              </p>
+            </div>
+
+            <div class="flex flex-col items-center pt-6 md:flex-row">
+              <img
+                src="../assets/img/profile.png"
+                alt="Imagen 1"
+                class="w-24"
+              />
+              <p class="text-2xl font-bold">BELLA FROM BIRMINHAN</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-gray-100 py-36 mt-36">
+    <div class="mx-auto bg-gray-100 py-10">
       <!-- Contenedor principal de la sección -->
       <div
-        class="container mx-auto px-4 lg:px-10 grid grid-cols-1 xl:grid-cols-2 gap-4 xl:flex justify-between h-full"
+        class="container grid grid-cols-1 xl:grid-cols-2 gap-4 xl:flex justify-between h-full"
       >
         <!-- Parte izquierda: Título -->
         <div class="xl:w-5/12 text-center xl:text-left">
@@ -434,13 +446,13 @@
       </div>
     </div>
 
-    <footer class="text-gray-400 py-16">
+    <footer class="text-gray-400">
       <div
-        class="container mx-auto flex flex-col items-center text-center xl:flex-row gap 4 justify-around"
+        class=" my-10 flex flex-col items-center text-center xl:flex-row justify-around"
       >
         <!-- Navegación -->
         <nav
-          class="flex flex-col md:flex-row space-y-2 md:space-x-4 md:space-y-0 gap-12 text-2xl"
+          class="flex flex-col md:flex-row space-y-2 md:space-x-4 md:space-y-0 gap-10 text-2xl"
         >
           <a href="#" class="hover:text-black">HOME</a>
           <a href="#" class="hover:text-black">UBER UNS</a>
