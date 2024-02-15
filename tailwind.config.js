@@ -4,12 +4,9 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: {
-        DEFAULT: "1rem",
-        sm: "4rem",
-      },
     },
     extend: {
+
       fontFamily: {
         bodyFont: ["Standerd", "sans-serif"],
       },

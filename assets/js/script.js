@@ -1,3 +1,19 @@
+const swiper = new Swiper('.js-testimonials-slider', {
+  // Optional parameters
+  grabCursor: true,
+  spaceBetween: 50,
+  pagination:{
+    el: '.js-testimonials-pagination',
+    clickable: true
+  },
+  breakpoints:{
+    769:{
+      slidesPerView: 2
+    }
+  }
+});
+
+
 const video = document.getElementById('myVideo');
 const playPauseBtn = document.getElementById('playPauseBtn');
 
@@ -21,5 +37,5 @@ function scrollToTop() {
     });
   }
 
- 
+
   

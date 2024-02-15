@@ -59,11 +59,12 @@ span {
   line-height: 1rem;
 }
 .navegacion {
-  padding: 0rem 2rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
 }
 
 .container {
-  margin: 6rem 0rem 6rem 0rem;
+  padding:5rem 2rem
 }
 
 @media (min-width: 768px) {
@@ -75,16 +76,14 @@ span {
   .navegacion {
     padding: 2rem 4rem 0rem 4rem;
   }
-  .container {
-    margin: 8rem 0rem 8rem 0rem;
-  }
+ 
 }
 @media (min-width: 1024px) {
   span {
     line-height: 1.5rem;
   }
   .container {
-    margin: 10rem 0rem 10rem 0rem;
+    padding: 8rem 4rem;
   }
 }
 @media (min-width: 1280px) {
@@ -95,6 +94,19 @@ span {
   }
   p {
     line-height: 2rem;
+  }
+  .navegacion{
+    padding: 2rem 8rem;
+  }
+
+  
+}
+@media(min-width:2560px){
+  span {
+    line-height: 2rem;
+  }
+  .navegacion{
+    padding: 2rem 36rem;
   }
 }
 .nav li {
@@ -212,3 +224,45 @@ span {
     transform: translateX(-90%);
   }
 }
+
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  display: flex;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.cards {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
