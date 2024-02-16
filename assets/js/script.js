@@ -1,13 +1,13 @@
 const swiper = new Swiper('.js-testimonials-slider', {
   // Optional parameters
   grabCursor: true,
-  spaceBetween: 50,
+  spaceBetween: 30,
   pagination:{
     el: '.js-testimonials-pagination',
     clickable: true
   },
   breakpoints:{
-    769:{
+    768:{
       slidesPerView: 2
     }
   }
